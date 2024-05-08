@@ -28,6 +28,7 @@ local options = {
 	foldenable		= true,
 
 	spelllang		= { "nb", "en" },
+	spellcapcheck	= "",
 }
 
 vim.g.spellfile_URL = "https://ftp.nluug.nl/pub/vim/runtime/spell/"
