@@ -16,7 +16,7 @@ return {
 			{ desc = "Toggle harpoon" })
 
 		for i = 1, 9 do
-			vim.keymap.set('n', '<C-' .. i .. '>', function()
+			vim.keymap.set('n', '<A-' .. i .. '>', function()
 				harpoon:list():select(i)
 			end, { desc = 'Harpoon file ' .. i })
 		end
