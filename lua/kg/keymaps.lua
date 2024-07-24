@@ -2,6 +2,8 @@ local keymap = vim.keymap.set
 
 keymap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
+keymap("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
+
 -- Dealing with word wrap
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

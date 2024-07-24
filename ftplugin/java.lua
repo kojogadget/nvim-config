@@ -8,6 +8,7 @@ end
 local jdtls_dir = vim.fn.stdpath('data') .. '/mason/share/jdtls'
 local config_dir = vim.fn.stdpath('data') .. '/mason/packages/jdtls/config_linux'
 
+-- local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:h')
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. project_name
 os.execute("mkdir " .. workspace_dir)
@@ -53,12 +54,18 @@ local config = {
       references = { enabled = true, },
       signatureHelp = { enabled = true },
 
+      project = {
+        outputPath = "bin",
+        sourcesPaths = { "src", "test" }
+      },
+
       configuration = {
         updateBuildConfiguration = "interactive",
       },
 
       format = {
         enabled = true,
+        comments = true,
         settings = {
           url = vim.fn.stdpath('config') .. '/utils/eclipse-java-google-style.xml',
           profile = 'GoogleStyle',
@@ -111,6 +118,7 @@ local config = {
   init_options = {
     bundles = bundles,
   },
+
 }
 
 config.on_attach = function(client, bufnr)
@@ -121,6 +129,14 @@ config.on_attach = function(client, bufnr)
     jdtls_dap.setup_dap_main_class_configs()
   end
   --   require('keymaps').map_java_keys(bufnr)
+
+  vim.keymap.set('n', "<leader>lo", jdtls.organize_imports, { desc = 'Organize imports', buffer = bufnr })
+  vim.keymap.set('n', "<leader>tc", jdtls.test_class, { desc = 'Test class', buffer = bufnr })
+  vim.keymap.set('n', "<leader>tm", jdtls.test_nearest_method, { desc = 'Test method', buffer = bufnr })
+  vim.keymap.set('n', '<leader>lrv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
+  vim.keymap.set('v', '<leader>lrm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
+    { desc = 'Extract method', buffer = bufnr })
+  vim.keymap.set('n', '<leader>lrc', jdtls.extract_constant, { desc = 'Extract constant', buffer = bufnr })
 end
 
 jdtls.start_or_attach(config)

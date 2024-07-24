@@ -4,4 +4,10 @@ return {
 	"tpope/vim-surround",
 
 	"mbbill/undotree",
+	{
+		"rcarriga/nvim-notify",
+		opts = {
+			background_colour = "#000000"
+		}
+	},
 }
