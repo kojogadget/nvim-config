@@ -27,8 +27,19 @@ return {
             jdtls = {},
             eslint = {},
             pyright = {},
-            tsserver = { filetypes = { "javascriptreact", "typescriptreact" } },
-            html = { filetypes = { "html" } },
+            tsserver = {
+                filetypes = {
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescriptreact"
+                }
+            },
+            html = { filetypes = {
+                    "html",
+                    "jsp"
+                }
+            },
 
             lua_ls = {
                 Lua = {
