@@ -27,7 +27,7 @@ return {
             jdtls = {},
             eslint = {},
             pyright = {},
-            tsserver = {
+            ts_ls = {
                 filetypes = {
                     "javascript",
                     "javascriptreact",
