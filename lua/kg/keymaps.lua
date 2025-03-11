@@ -12,7 +12,8 @@ keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 
 -- Undotree
-keymap("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
+keymap("n", "<leader>uu", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
+keymap("n", "<leader>ud", vim.cmd.DBUIToggle, { desc = "Toggle Dadbod UI" })
 
 -- Spell
 keymap("n", "<localleader>s", function ()

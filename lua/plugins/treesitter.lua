@@ -15,6 +15,7 @@ return {
                 "vim",
                 "vimdoc",
                 "query",
+                "sql",
                 "javascript",
                 "html"
             },
