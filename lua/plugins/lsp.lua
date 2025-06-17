@@ -27,6 +27,7 @@ return {
             jdtls = {},
             eslint = {},
             pyright = {},
+            -- gopls = {},
             ts_ls = {
                 filetypes = {
                     "javascript",

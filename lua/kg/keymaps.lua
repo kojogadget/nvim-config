@@ -14,6 +14,7 @@ keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 -- Undotree
 keymap("n", "<leader>uu", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
 keymap("n", "<leader>ud", vim.cmd.DBUIToggle, { desc = "Toggle Dadbod UI" })
+keymap("n", "<leader>ut", vim.cmd.TagbarToggle, { desc = "Toggle Tagbar UI" })
 
 -- Spell
 keymap("n", "<localleader>s", function ()

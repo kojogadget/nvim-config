@@ -1,4 +1,6 @@
 return {
+  -- Go
+  "fatih/vim-go",
   -- Java
   "mfussenegger/nvim-jdtls",
   -- Latex
@@ -11,17 +13,13 @@ return {
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_format_enabled = true
       vim.g.vimtex_fold_enabled = true
-
-      -- vim.g.vimtex_grammar_vlty = {
-      --   lt_directory = "/opt/LanguageTool",
-      --   show_suggestions = 1
-      -- }
-
       vim.g.vimtex_compiler_latexmk = {
         out_dir = "build"
       }
       vim.opt["textwidth"] = 80
       vim.opt["wrap"] = true
+      vim.opt["spell"] = true
+      vim.opt["spelllang"] = "nb"
 
       vim.opt["foldmethod"] = "expr"
       vim.opt["foldexpr"] = "vimtex#fold#level(v:lnum)"

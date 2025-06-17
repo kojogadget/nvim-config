@@ -12,6 +12,7 @@ return {
 	"kristijanhusak/vim-dadbod-completion",
 
 	"mbbill/undotree",
+	"preservim/tagbar",
 	{
 		"rcarriga/nvim-notify",
 		opts = {
