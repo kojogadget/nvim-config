@@ -23,11 +23,19 @@ return {
     },
 
     config = function()
+        local pid = vim.fn.getpid()
+        local omnisharp_bin = vim.fn.stdpath('data') .. '/mason/bin/OmniSharp'
+
         local servers = {
             jdtls = {},
             eslint = {},
             pyright = {},
             -- gopls = {},
+            omnisharp = {
+                setup = {
+                    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) }
+                }
+            },
             ts_ls = {
                 filetypes = {
                     "javascript",
