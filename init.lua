@@ -717,6 +717,7 @@ require('lazy').setup({
           },
         },
         emmet_ls = {},
+        eslint = {},
         cssls = {},
         omnisharp = {},
 
@@ -752,8 +753,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'eslint_d',
         'prettierd',
+        'csharpier',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -790,7 +791,7 @@ require('lazy').setup({
       },
     },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
@@ -807,6 +808,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        cs = { 'csharpier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -815,6 +817,13 @@ require('lazy').setup({
         javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
         typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      },
+      formatters = {
+        csharpier = {
+          command = os.getenv 'HOME' .. '/.dotnet/tools/csharpier',
+          args = { 'format', '$FILENAME' },
+          stdin = false,
+        },
       },
     },
   },
